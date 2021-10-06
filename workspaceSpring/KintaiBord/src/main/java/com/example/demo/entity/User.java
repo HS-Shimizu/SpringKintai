@@ -1,6 +1,4 @@
 package com.example.demo.entity;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -56,7 +54,7 @@ public class User {
      * 削除日時
      */
     @Column(name = "ymd")
-   private Date ymd;
+   private String ymd;
 
     /**
      * 住所
