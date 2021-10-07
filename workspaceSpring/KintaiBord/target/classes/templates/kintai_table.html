@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link href="/css/list.css" rel="stylesheet"></link>
 		<title>勤怠表</title>
 	</head>
 	<body>
@@ -41,6 +42,10 @@
 					<td th:text="*{work_st}"></td>
 					<td th:text="*{work_ed}"></td>
 					<td th:text="*{work_rt}"></td>
+				</tr>
+				<tr th:each="day : ${days}">
+					<td class="center"th:text="*{day}"></td>
+
 				</tr>
 			</tbody>
 	</table>
