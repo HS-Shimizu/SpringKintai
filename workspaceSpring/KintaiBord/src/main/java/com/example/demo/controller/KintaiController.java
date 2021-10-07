@@ -1,17 +1,24 @@
 package com.example.demo.controller;
 import java.util.Calendar;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.entity.User;
+import com.example.demo.service.KintaiService;
+
 
 
 @RestController
 public class KintaiController {
 
+	 @Autowired
+	  KintaiService kintaiService;
 
 
 	/**
@@ -26,9 +33,12 @@ public class KintaiController {
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH) + 1;
 
+		List<User> kintailist = kintaiService.searchAll();
+
         mav.setViewName("kintai_table");
         mav.addObject("year", year);
         mav.addObject("month", month);
+        mav.addObject("kintailist", kintailist);
 
         return mav;
 

@@ -26,5 +26,23 @@
 			<input type="submit" value="検索" />
 		</form>
 
+		<table>
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>開始時間</th>
+					<th>終了時間</th>
+					<th>休憩時間</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="kintai : ${kintailist}" th:object="${kintai}">
+					<td class="center"th:text="*{ymd}"></td>
+					<td th:text="*{work_st}"></td>
+					<td th:text="*{work_ed}"></td>
+					<td th:text="*{work_rt}"></td>
+				</tr>
+			</tbody>
+	</table>
 </body>
 </html>
