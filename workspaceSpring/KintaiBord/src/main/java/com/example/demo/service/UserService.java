@@ -20,4 +20,6 @@ public class UserService {
         // ユーザーTBLの内容を全検索
         return userRepository.findAll();
     }
+
+  
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>勤怠表</title>
+	</head>
+	<body>
+		<form method="post" name="form" action="kintai/aaa">
+			<input type="text" name="year" id="year" size="4" maxlength="4" th:value="${year}">年
+
+			<select name="month" id="month">
+			<option th:value="${month}"th:text="${month}"></option>
+			<option th:value="${1}">1</option>
+			<option th:value="${2}">2</option>
+			<option th:value="${3}">3</option>
+			<option th:value="${4}">4</option>
+			<option th:value="${5}">5</option>
+			<option th:value="${6}">6</option>
+			<option th:value="${7}">7</option>
+			<option th:value="${8}">8</option>
+			<option th:value="${9}">9</option>
+			<option th:value="${10}">10</option>
+			<option th:value="${11}">11</option>
+			<option th:value="${12}">12</option>
+			</select>月
+			<input type="submit" value="検索" />
+		</form>
+
+		<table>
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>開始時間</th>
+					<th>終了時間</th>
+					<th>休憩時間</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="kintai : ${kintailist}" th:object="${kintai}">
+					<td class="center"th:text="*{ymd}"></td>
+					<td th:text="*{work_st}"></td>
+					<td th:text="*{work_ed}"></td>
+					<td th:text="*{work_rt}"></td>
+				</tr>
+			</tbody>
+	</table>
+</body>
+</html>
