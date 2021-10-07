@@ -12,28 +12,28 @@ import lombok.Data;
 @Table(name = "kintai")
 public class kintai {
 
-	   @Id
-	 /**
-     * 日付
-     */
-    @Column(name = "ymd")
-   private String ymd;
+	/**
+	* 日付
+	*/
+	@Id
+	@Column(name = "ymd")
+	private String ymd;
 
-    /**
-     * 開始時間
-     */
-    @Column(name = "work_st")
-    private String work_st;
+	/**
+	 * 開始時間
+	 */
+	@Column(name = "work_st")
+	private String work_st;
 
-    /**
-     * 終了時間
-     */
-    @Column(name = "work_ed")
-    private String work_ed;
+	/**
+	 * 終了時間
+	 */
+	@Column(name = "work_ed")
+	private String work_ed;
 
-    /**
-     * 休憩時間
-     */
-    @Column(name = "work_rt")
-    private String work_rt;
+	/**
+	 * 休憩時間
+	 */
+	@Column(name = "work_rt")
+	private String work_rt;
 }
