@@ -19,7 +19,6 @@ public class KintaiService {
 	 *
 	 * @return
 	 */
-	@Autowired
 	public int year() {
 
 		int year = calendar.get(Calendar.YEAR);
@@ -33,7 +32,6 @@ public class KintaiService {
 	 *
 	 * @return
 	 */
-	@Autowired
 	public int month() {
 
 		int month = calendar.get(Calendar.MONTH) + 1;
@@ -70,7 +68,6 @@ public class KintaiService {
 	public List<KintaiBean> kintaiday(List<kintai> kintailist , List<String> days) {
 
 		List<KintaiBean> displayKintai = new ArrayList<KintaiBean>();
-		//KintaiBean display = new KintaiBean();
 
 		for(int i = 0 ;i < days.size() ; i++) {
 			KintaiBean display = new KintaiBean();
@@ -92,8 +89,6 @@ public class KintaiService {
 			}
 			displayKintai.add(i,display);
 		}
-
-
 		return displayKintai;
 	}
 

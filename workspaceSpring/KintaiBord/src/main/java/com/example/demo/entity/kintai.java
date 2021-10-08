@@ -37,3 +37,4 @@ public class kintai {
 	@Column(name = "work_rt")
 	private String work_rt;
 }
+
