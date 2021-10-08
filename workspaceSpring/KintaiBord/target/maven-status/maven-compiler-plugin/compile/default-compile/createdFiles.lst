@@ -1,0 +1,6 @@
+com\example\demo\controller\KintaiController.class
+com\example\demo\repository\KintaiRepository.class
+com\example\demo\entity\User.class
+com\example\demo\service\KintaiService.class
+com\example\demo\KintaiBean.class
+com\example\demo\entity\kintai.class
