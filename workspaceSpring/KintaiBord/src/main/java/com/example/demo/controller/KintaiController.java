@@ -33,7 +33,7 @@ public class KintaiController {
 
 		List<String> days = kintaiService.daySaerch(year,month);
 		List<kintai> kintailist = kintaiService.searchAll();
-		kintaiService.kintaiday(kintailist , days);
+	//	kintaiService.kintaiday(kintailist , days);
         mav.setViewName("kintai_table");
         mav.addObject("year", year);
         mav.addObject("month", month);

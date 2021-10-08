@@ -47,7 +47,6 @@ public class KintaiService {
 	 * @param month
 	 * @return
 	 */
-	@Autowired
 	public List<String> daySaerch(int year, int month) {
 		ArrayList<String> days = new ArrayList<String>();
 
@@ -66,7 +65,6 @@ public class KintaiService {
 	 *
 	 *
 	 */
-	@Autowired
 	public void kintaiday(List<kintai> kintailist , List<String> days) {
 
 		for(int i = 0 ;i <= days.size() ; i++) {
