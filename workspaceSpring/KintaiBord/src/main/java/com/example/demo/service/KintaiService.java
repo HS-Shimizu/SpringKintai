@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.KintaiBean;
 import com.example.demo.entity.kintai;
 import com.example.demo.repository.KintaiRepository;
 
@@ -62,22 +63,38 @@ public class KintaiService {
 	}
 
 	/** 表示用リスト
+	 * @return
 	 *
 	 *
 	 */
-	public void kintaiday(List<kintai> kintailist , List<String> days) {
+	public List<KintaiBean> kintaiday(List<kintai> kintailist , List<String> days) {
 
-		for(int i = 0 ;i <= days.size() ; i++) {
-			for(int j = 0 ;j <= kintailist.size(); j++) {
+		List<KintaiBean> displayKintai = new ArrayList<KintaiBean>();
+		//KintaiBean display = new KintaiBean();
+
+		for(int i = 0 ;i < days.size() ; i++) {
+			KintaiBean display = new KintaiBean();
+			for(int j = 0 ;j < kintailist.size(); j++) {
 				if(days.get(i).equals(kintailist.get(j).getYmd())) {
-					//kintailistに上書き？
-					//新しくentityを作成？
+
+					display.setDisplayYmd(days.get(i));
+					display.setDisplaySt(kintailist.get(j).getWork_st());
+					display.setDisplayEd(kintailist.get(j).getWork_ed());
+					display.setDisplayRt(kintailist.get(j).getWork_rt());
+					break;
 				}
 				else {
-
+					display.setDisplayYmd(days.get(i));
+					display.setDisplaySt("");
+					display.setDisplayEd("");
+					display.setDisplayRt("");
 				}
 			}
+			displayKintai.add(i,display);
 		}
+
+
+		return displayKintai;
 	}
 
 	 @Autowired

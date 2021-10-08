@@ -43,10 +43,14 @@
 					<td th:text="*{work_ed}"></td>
 					<td th:text="*{work_rt}"></td>
 				</tr>
-				<tr th:each="day : ${days}">
-					<td class="center"th:text="*{day}"></td>
 
+				<tr th:each="KintaiBean : ${displayList}"th:object="${KintaiBean}">
+					<td class="center"th:text="*{displayYmd}"></td>
+					<td th:text="*{displaySt}"></td>
+					<td th:text="*{displayEd}"></td>
+					<td th:text="*{displayRt}"></td>
 				</tr>
+
 			</tbody>
 	</table>
 </body>

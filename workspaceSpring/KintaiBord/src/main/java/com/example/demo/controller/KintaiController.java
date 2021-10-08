@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.demo.KintaiBean;
 import com.example.demo.entity.kintai;
 import com.example.demo.service.KintaiService;
 
@@ -33,12 +34,16 @@ public class KintaiController {
 
 		List<String> days = kintaiService.daySaerch(year,month);
 		List<kintai> kintailist = kintaiService.searchAll();
-	//	kintaiService.kintaiday(kintailist , days);
+		List<KintaiBean> displayList = kintaiService.kintaiday(kintailist , days);
+
+
         mav.setViewName("kintai_table");
         mav.addObject("year", year);
         mav.addObject("month", month);
         mav.addObject("days", days);
         mav.addObject("kintailist", kintailist);
+        mav.addObject("displayList", displayList);
+
 
         return mav;
 
