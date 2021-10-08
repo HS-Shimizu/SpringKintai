@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.KintaiBean;
 import com.example.demo.entity.kintai;
 import com.example.demo.service.KintaiService;
 
@@ -22,7 +21,7 @@ public class KintaiController {
 
 
 	/**
-	 * ユーザー情報一覧画面を表示
+	 * 今月を表示
 	 * @param model Model
 	 * @return ユーザー情報一覧画面のHTML
 	 */
@@ -34,15 +33,13 @@ public class KintaiController {
 
 		List<String> days = kintaiService.daySaerch(year,month);
 		List<kintai> kintailist = kintaiService.searchAll();
-		List<KintaiBean> displayList = kintaiService.kintaiday(kintailist , days);
-
 
         mav.setViewName("kintai_table");
         mav.addObject("year", year);
         mav.addObject("month", month);
         mav.addObject("days", days);
         mav.addObject("kintailist", kintailist);
-        mav.addObject("displayList", displayList);
+        mav.addObject("displayList", kintaiService.kintaiday(kintailist , days));
 
 
         return mav;
@@ -57,9 +54,15 @@ public class KintaiController {
 	@RequestMapping(value = "/kintai/aaa", method=RequestMethod.POST)
 	 public ModelAndView kintai2(@RequestParam("year")Integer year, @RequestParam("month")Integer month, ModelAndView mav) {
 
+		List<String> days = kintaiService.daySaerch(year,month);
+		List<kintai> kintailist = kintaiService.searchAll();
+
         mav.setViewName("kintai_table");
         mav.addObject("year", year);
         mav.addObject("month", month);
+        mav.addObject("days", days);
+        mav.addObject("kintailist", kintailist);
+        mav.addObject("displayList", kintaiService.kintaiday(kintailist , days));
 
         return mav;
 

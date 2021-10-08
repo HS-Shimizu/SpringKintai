@@ -6,7 +6,7 @@
 		<title>勤怠表</title>
 	</head>
 	<body>
-		<form method="post" name="form" action="kintai/aaa">
+		<form method="post" name="form" th:action="@{/kintai/aaa}">
 			<input type="text" name="year" id="year" size="4" maxlength="4" th:value="${year}">年
 
 			<select name="month" id="month">
@@ -38,17 +38,26 @@
 			</thead>
 			<tbody>
 				<tr th:each="kintai : ${kintailist}" th:object="${kintai}">
-					<td class="center"th:text="*{ymd}"></td>
+					<td class="center"th:value="*{ymd}">
+						<input type="text" name="work_st" size="10" maxlength="4">
+					</td>
 					<td th:text="*{work_st}"></td>
 					<td th:text="*{work_ed}"></td>
 					<td th:text="*{work_rt}"></td>
 				</tr>
 
 				<tr th:each="KintaiBean : ${displayList}"th:object="${KintaiBean}">
-					<td class="center"th:text="*{displayYmd}"></td>
-					<td th:text="*{displaySt}"></td>
-					<td th:text="*{displayEd}"></td>
-					<td th:text="*{displayRt}"></td>
+					<td class="center" th:text="*{displayYmd}">
+					</td>
+					<td>
+						<input type="text" name="work_st" size="10" maxlength="4" th:value="*{displaySt}">
+					</td>
+					<td>
+						<input type="text" name="work_ed" size="10" maxlength="4" th:value="*{displayEd}">
+					</td>
+					<td >
+						<input type="text" name="work_rt" size="10" maxlength="4" th:value="*{displayRt}">
+					</td>
 				</tr>
 
 			</tbody>
